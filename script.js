@@ -20,14 +20,12 @@ function generatePassword(){
   var upperCharacters = lowerCharacters.map(toUpper);
   var numCharacters = ["1","2","3","4","5","6","7","8","8","0"]
   var specialCharacters = ["!","@","#","$","%","^","&","*","(",")","+"];
-  
-
   var passwordVar = [];
 
 
   function looper(){
     for(var i=0; i < userLength; i++) {
-      tempPassword += (allowed[(Math.floor(Math.random() * allowed.length))]);
+      tempPassword += (passwordVar[(Math.floor(Math.random() * passwordVar.length))]);
     }
     }
 
@@ -38,8 +36,6 @@ function generatePassword(){
       
     }
   }
-
-
 // Checks to see what conditions are true, if they are add them to allowed array
   if(userLength < 129 && userLength > 7){
     tempPassword = "";
@@ -54,7 +50,7 @@ function generatePassword(){
     addToArry(userSpecial,specialCharacters);
     looper();
   }else{
-    prompt("Please pick a number between 8-128");
+    alert("Please pick a number between 8-128");
   }
 // if nothing is chosen will ask user to pick one condition
   if(userLower == false && userUpper == false && userNum == false && userSpecial == false){
@@ -71,3 +67,4 @@ toUpper = function(x){
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
